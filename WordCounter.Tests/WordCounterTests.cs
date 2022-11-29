@@ -33,13 +33,27 @@ namespace WordCounter.Tests
         [Test]
         public void Counts_Words_When_There_Is_External_Punctuation()
         {
-            string text = "hello.hello?hello!hello;hello: hello";
+            string text = "hello.hello?hello!hello;hello:hello hello\thello\r\nhello\"hello\"";
 
             var wordCounter = CreateWordCounter();
             var results = wordCounter.Count(text);
 
             Assert.AreEqual(1, results.Count);
-            Assert.AreEqual(6, results["hello"]);
+            Assert.AreEqual(10, results["hello"]);
+        }
+
+        [Test]
+        public void Counts_Words_When_There_Is_Internal_Punctuation()
+        {
+            string text = "cant can't can-t";
+
+            var wordCounter = CreateWordCounter();
+            var results = wordCounter.Count(text);
+
+            Assert.AreEqual(3, results.Count);
+            Assert.AreEqual(1, results["cant"]);
+            Assert.AreEqual(1, results["can't"]);
+            Assert.AreEqual(1, results["can-t"]);
         }
 
         private WordCounter CreateWordCounter()
