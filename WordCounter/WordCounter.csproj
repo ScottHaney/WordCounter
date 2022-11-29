@@ -10,6 +10,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/ScottHaney/WordCounter</RepositoryUrl>
     <PackageTags>word counter</PackageTags>
+    <PackageId>English.$(AssemblyName)</PackageId>
   </PropertyGroup>
 
 </Project>
