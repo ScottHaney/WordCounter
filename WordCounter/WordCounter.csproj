@@ -3,6 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>Scott Haney</Authors>
+    <Company />
+    <Description>Given a string of English text this package will return a dictionary mapping each word (case insensitive) to the number of times that word occurs.</Description>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ScottHaney/WordCounter</RepositoryUrl>
+    <PackageTags>word counter</PackageTags>
   </PropertyGroup>
 
 </Project>

@@ -5,13 +5,16 @@ using WordCounter.CharacterIdentification;
 
 namespace WordCounter
 {
+    /// <summary>
+    /// Counts the number of times each word occurs in English text
+    /// </summary>
     public class WordCounter : IWordCounter
     {
         private readonly ICharacterIdentifier _characterIdentifier;
 
-        public WordCounter(ICharacterIdentifier characterIdentifier)
+        public WordCounter(ICharacterIdentifier characterIdentifier = null)
         {
-            _characterIdentifier = characterIdentifier;
+            _characterIdentifier = characterIdentifier ?? new CharacterIdentifier();
         }
 
         public Dictionary<string, int> Count(string text)

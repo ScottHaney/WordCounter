@@ -4,6 +4,9 @@ using System.Text;
 
 namespace WordCounter.CharacterIdentification
 {
+    /// <summary>
+    /// Default implementation of <see cref="ICharacterIdentifier"/>. This is what you usually want to use.
+    /// </summary>
     public class CharacterIdentifier : ICharacterIdentifier
     {
         public bool IsWordCharacterThatCanStartAWord(char c)
