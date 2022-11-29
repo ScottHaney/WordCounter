@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using WordCounter.CharacterIdentification;
 
 namespace WordCounter
 {
-    public class WordCounter
+    public class WordCounter : IWordCounter
     {
         private readonly ICharacterIdentifier _characterIdentifier;
 
@@ -51,25 +52,6 @@ namespace WordCounter
                 results[word] = match + 1;
             else
                 results[word] = 1;
-        }
-    }
-
-    public interface ICharacterIdentifier
-    {
-        bool IsWordCharacterThatCanStartAWord(char c);
-        bool IsWordCharacterThatCantStartAWord(char c);
-    }
-
-    public class CharacterIdentifier : ICharacterIdentifier
-    {
-        public bool IsWordCharacterThatCanStartAWord(char c)
-        {
-            return char.IsLetter(c);
-        }
-
-        public bool IsWordCharacterThatCantStartAWord(char c)
-        {
-            return c == '\'' || c == '-';
         }
     }
 }

@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using WordCounter.CharacterIdentification;
 
 namespace WordCounter.Tests
 {
