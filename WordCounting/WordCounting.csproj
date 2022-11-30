@@ -6,7 +6,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>Scott Haney</Authors>
     <Company />
-    <Description>Fix a defect with the mergeResults flag</Description>
+    <Description>Make the default character identification method more forgiving</Description>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/ScottHaney/WordCounter</RepositoryUrl>
     <PackageTags>word counter</PackageTags>
@@ -14,7 +14,7 @@
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
-    <Version>2.1.1</Version>
+    <Version>2.1.2</Version>
     <PackageReleaseNotes>Added a mergeResults flag to allow for merging the results of each string passed into WordCounter.Count rather than having all of the results go to the same dictionary directly</PackageReleaseNotes>
   </PropertyGroup>
 
