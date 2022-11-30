@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using WordCounting.CharacterIdentification;
+using WordCounting.Counting;
 
 namespace WordCounting.Tests
 {
@@ -69,9 +70,22 @@ namespace WordCounting.Tests
             Assert.AreEqual(2, results["World"]);
         }
 
-        private WordCounter CreateWordCounter()
+        [Test]
+        public void IsPresentWordCountMethod_Stops_At_One_When_There_Are_Multiple_Matches()
         {
-            return new WordCounter(new CharacterIdentifier());
+            string text = "Hello World Hello World";
+
+            var wordCounter = CreateWordCounter(new IsPresentWordCountMethod());
+            var results = wordCounter.Count(text, text);
+
+            Assert.AreEqual(2, results.Count);
+            Assert.AreEqual(1, results["Hello"]);
+            Assert.AreEqual(1, results["World"]);
+        }
+
+        private WordCounter CreateWordCounter(IWordCountMethod wordCountMethod = null)
+        {
+            return new WordCounter(new CharacterIdentifier(), wordCountMethod);
         }
     }
 }

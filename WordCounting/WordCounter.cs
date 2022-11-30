@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using WordCounting.CharacterIdentification;
+using WordCounting.Counting;
 
 namespace WordCounting
 {
@@ -11,10 +12,13 @@ namespace WordCounting
     public class WordCounter : IWordCounter
     {
         private readonly ICharacterIdentifier _characterIdentifier;
+        private readonly IWordCountMethod _wordCountMethod;
 
-        public WordCounter(ICharacterIdentifier characterIdentifier = null)
+        public WordCounter(ICharacterIdentifier characterIdentifier = null,
+            IWordCountMethod wordCountMethod = null)
         {
             _characterIdentifier = characterIdentifier ?? new CharacterIdentifier();
+            _wordCountMethod = wordCountMethod ?? new DefaultWordCountMethod();
         }
 
         public Dictionary<string, int> Count(params string[] texts)
@@ -64,9 +68,9 @@ namespace WordCounting
         {
             var word = text.Substring(startIndex, endIndex - startIndex + 1);
             if (results.TryGetValue(word, out var match))
-                results[word] = match + 1;
+                results[word] = _wordCountMethod.UpdateCount(match);
             else
-                results[word] = 1;
+                results[word] = _wordCountMethod.UpdateCount(0);
         }
     }
 }
