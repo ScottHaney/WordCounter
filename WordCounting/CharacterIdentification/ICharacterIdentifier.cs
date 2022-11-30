@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WordCounter.CharacterIdentification
+namespace WordCounting.CharacterIdentification
 {
     /// <summary>
     /// Allows for customization of which characters are considered to be part of a word.

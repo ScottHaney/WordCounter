@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WordCounter.CharacterIdentification
+namespace WordCounting.CharacterIdentification
 {
     /// <summary>
     /// Default implementation of <see cref="ICharacterIdentifier"/>. This is what you usually want to use.

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WordCounter
+namespace WordCounting
 {
     public interface IWordCounter
     {

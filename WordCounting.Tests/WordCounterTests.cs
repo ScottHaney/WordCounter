@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using WordCounter.CharacterIdentification;
+using WordCounting.CharacterIdentification;
 
-namespace WordCounter.Tests
+namespace WordCounting.Tests
 {
     public class Tests
     {
