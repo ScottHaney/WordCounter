@@ -13,12 +13,21 @@ namespace WordCounting
     {
         private readonly ICharacterIdentifier _characterIdentifier;
         private readonly IWordCountMethod _wordCountMethod;
+        private readonly bool _mergeCounts;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="characterIdentifier"></param>
+        /// <param name="wordCountMethod"></param>
+        /// <param name="mergeCounts">If true will calcluate separate counts for each text passed in and then merge them together into the total of each. This can be useful when using <see cref="IsPresentWordCountMethod"/> for instance to tell how many of the text arguments used a specific word at least once.</param>
         public WordCounter(ICharacterIdentifier characterIdentifier = null,
-            IWordCountMethod wordCountMethod = null)
+            IWordCountMethod wordCountMethod = null,
+            bool mergeCounts = false)
         {
             _characterIdentifier = characterIdentifier ?? new CharacterIdentifier();
             _wordCountMethod = wordCountMethod ?? new DefaultWordCountMethod();
+            _mergeCounts = mergeCounts;
         }
 
         public Dictionary<string, int> Count(params string[] texts)
@@ -28,7 +37,26 @@ namespace WordCounting
 
             Dictionary<string, int> results = null;
             foreach (var text in texts)
-                results = Count(text, results);
+            {
+                var currentResults = Count(text, results);
+                if (_mergeCounts)
+                {
+                    if (results == null)
+                        results = currentResults;
+                    else
+                    {
+                        foreach (var pair in currentResults)
+                        {
+                            if (results.TryGetValue(pair.Key, out int value))
+                                results[pair.Key] = value + pair.Value;
+                            else
+                                results[pair.Key] = pair.Value;
+                        }
+                    }
+                }
+                else
+                    results = currentResults;
+            }
 
             return results;
         }
