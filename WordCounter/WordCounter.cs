@@ -17,6 +17,11 @@ namespace WordCounter
             _characterIdentifier = characterIdentifier ?? new CharacterIdentifier();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="texts">The result will be the combined word counts from all of these strings.</param>
+        /// <returns></returns>
         public Dictionary<string, int> Count(params string[] texts)
         {
             if (texts == null)
