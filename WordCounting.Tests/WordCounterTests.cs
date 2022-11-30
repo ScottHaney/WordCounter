@@ -83,9 +83,22 @@ namespace WordCounting.Tests
             Assert.AreEqual(1, results["World"]);
         }
 
-        private WordCounter CreateWordCounter(IWordCountMethod wordCountMethod = null)
+        [Test]
+        public void IsPresentWordCountMethod_Gives_Total_Presence_Count_Across_All_Input_Strings_When_MergeResults_Is_True()
         {
-            return new WordCounter(new CharacterIdentifier(), wordCountMethod);
+            string text = "Hello World Hello World";
+
+            var wordCounter = CreateWordCounter(new IsPresentWordCountMethod(), true);
+            var results = wordCounter.Count(text, text);
+
+            Assert.AreEqual(2, results.Count);
+            Assert.AreEqual(2, results["Hello"]);
+            Assert.AreEqual(2, results["World"]);
+        }
+
+        private WordCounter CreateWordCounter(IWordCountMethod wordCountMethod = null, bool mergeResults = false)
+        {
+            return new WordCounter(new CharacterIdentifier(), wordCountMethod, mergeResults);
         }
     }
 }
