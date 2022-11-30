@@ -89,11 +89,11 @@ namespace WordCounting.Tests
             string text = "Hello World Hello World";
 
             var wordCounter = CreateWordCounter(new IsPresentWordCountMethod(), true);
-            var results = wordCounter.Count(text, text);
+            var results = wordCounter.Count(text, text, text);
 
             Assert.AreEqual(2, results.Count);
-            Assert.AreEqual(2, results["Hello"]);
-            Assert.AreEqual(2, results["World"]);
+            Assert.AreEqual(3, results["Hello"]);
+            Assert.AreEqual(3, results["World"]);
         }
 
         private WordCounter CreateWordCounter(IWordCountMethod wordCountMethod = null, bool mergeResults = false)

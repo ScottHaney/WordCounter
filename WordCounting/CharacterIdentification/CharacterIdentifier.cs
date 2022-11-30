@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace WordCounting.CharacterIdentification
@@ -16,7 +17,12 @@ namespace WordCounting.CharacterIdentification
 
         public bool IsWordCharacterThatCantStartAWord(char c)
         {
-            return c == '\'' || c == '-';
+            return !char.IsWhiteSpace(c) && !_sentenceStructurePunctuationMarks.Contains(c);
         }
+
+        private static readonly char[] _sentenceStructurePunctuationMarks = new char[]
+        {
+            '.', '?', '!', ',', ';', ':', '"'
+        };
     }
 }

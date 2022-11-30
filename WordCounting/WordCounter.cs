@@ -38,9 +38,9 @@ namespace WordCounting
             Dictionary<string, int> results = null;
             foreach (var text in texts)
             {
-                var currentResults = Count(text, results);
                 if (_mergeCounts)
                 {
+                    var currentResults = CountInternal(text, null);
                     if (results == null)
                         results = currentResults;
                     else
@@ -55,13 +55,13 @@ namespace WordCounting
                     }
                 }
                 else
-                    results = currentResults;
+                    results = CountInternal(text, results);
             }
 
             return results;
         }
 
-        private Dictionary<string, int> Count(string text, Dictionary<string, int> currentResults)
+        private Dictionary<string, int> CountInternal(string text, Dictionary<string, int> currentResults)
         {
             text = text ?? string.Empty;
 
