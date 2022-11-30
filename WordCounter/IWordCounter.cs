@@ -6,6 +6,6 @@ namespace WordCounter
 {
     public interface IWordCounter
     {
-        Dictionary<string, int> Count(string text);
+        Dictionary<string, int> Count(string[] text);
     }
 }

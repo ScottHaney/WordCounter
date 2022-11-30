@@ -56,6 +56,19 @@ namespace WordCounter.Tests
             Assert.AreEqual(1, results["can-t"]);
         }
 
+        [Test]
+        public void Counts_Words_When_Multiple_Strings_Are_Passed_In()
+        {
+            string text = "Hello World";
+
+            var wordCounter = CreateWordCounter();
+            var results = wordCounter.Count(text, text);
+
+            Assert.AreEqual(2, results.Count);
+            Assert.AreEqual(2, results["Hello"]);
+            Assert.AreEqual(2, results["World"]);
+        }
+
         private WordCounter CreateWordCounter()
         {
             return new WordCounter(new CharacterIdentifier());

@@ -17,12 +17,24 @@ namespace WordCounter
             _characterIdentifier = characterIdentifier ?? new CharacterIdentifier();
         }
 
-        public Dictionary<string, int> Count(string text)
+        public Dictionary<string, int> Count(params string[] texts)
+        {
+            if (texts == null)
+                return new Dictionary<string, int>();
+
+            Dictionary<string, int> results = null;
+            foreach (var text in texts)
+                results = Count(text, results);
+
+            return results;
+        }
+
+        private Dictionary<string, int> Count(string text, Dictionary<string, int> currentResults)
         {
             text = text ?? string.Empty;
 
             int? startIndex = null;
-            var results = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            var results = currentResults ?? new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 
             for (int i = 0; i < text.Length; i++)
             {
