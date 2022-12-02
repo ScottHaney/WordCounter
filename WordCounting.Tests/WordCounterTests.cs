@@ -1,6 +1,6 @@
 using NUnit.Framework;
-using WordCounting.CharacterIdentification;
 using WordCounting.Counting;
+using WordParsing.CharacterIdentification;
 
 namespace WordCounting.Tests
 {

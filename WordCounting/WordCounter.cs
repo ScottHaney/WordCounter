@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using WordCounting.CharacterIdentification;
 using WordCounting.Counting;
+using WordParsing;
+using WordParsing.CharacterIdentification;
 
 namespace WordCounting
 {

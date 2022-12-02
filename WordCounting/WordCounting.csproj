@@ -25,4 +25,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="English.WordParsing" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>
