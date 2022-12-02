@@ -1,3 +1,6 @@
+[![NuGet version (SoftCircuits.Silk)](https://img.shields.io/nuget/v/SoftCircuits.Silk.svg?style=flat-square)](https://www.nuget.org/packages/English.WordCounter/)
+
+
 # Word Counter
 Counts up the number of times each word occurs (case insensitive) in a string of English text.
 
