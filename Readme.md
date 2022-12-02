@@ -1,4 +1,4 @@
-[![NuGet version (English.WordCounting)](https://img.shields.io/nuget/v/SoftCircuits.Silk.svg?style=flat-square)](https://www.nuget.org/packages/English.WordCounting/)
+[![NuGet version (English.WordCounting)](https://img.shields.io/nuget/v/English.WordCounting.svg?style=flat-square)](https://www.nuget.org/packages/English.WordCounting/)
 
 
 # Word Counter
